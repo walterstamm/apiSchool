@@ -5,8 +5,10 @@ const doc = {
         title: 'School API',
         description: 'API to manage students and teachers',
     },
-    host: "localhost:8080",
-    schemes: ['http'],
+    // host: "localhost:8080",
+    // schemes: ['http'],
+    host: "apischool-4wmm.onrender.com",
+    schemes: ['https'],
 };
 
 const outputFile = './swagger.json';

@@ -5,10 +5,10 @@
     "description": "API to manage students and teachers",
     "version": "1.0.0"
   },
-  "host": "localhost:8080",
+  "host": "apischool-4wmm.onrender.com",
   "basePath": "/",
   "schemes": [
-    "http"
+    "https"
   ],
   "paths": {
     "/students/": {
