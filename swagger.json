@@ -13,7 +13,7 @@
   "paths": {
     "/students/": {
       "get": {
-        "description": "",
+        "description": "Get all students",
         "responses": {
           "default": {
             "description": ""
@@ -21,7 +21,7 @@
         }
       },
       "post": {
-        "description": "",
+        "description": "Create a new student",
         "parameters":[
           {
             "name": "student",
@@ -68,7 +68,7 @@
     },
     "/students/{id}": {
       "get": {
-        "description": "",
+        "description": "Get a student by id",
         "parameters": [
           {
             "name": "id",
@@ -84,7 +84,7 @@
         }
       },
       "put": {
-        "description": "",
+        "description": "Update a student by id",
         "parameters": [
           {
             "name": "id",
@@ -132,7 +132,7 @@
         }
       },
       "delete": {
-        "description": "",
+        "description": "Delete a student by id",
         "parameters": [
           {
             "name": "id",
@@ -150,7 +150,7 @@
     },
     "/teachers/": {
       "get": {
-        "description": "",
+        "description": "Get all teachers",
         "responses": {
           "default": {
             "description": ""
@@ -158,7 +158,7 @@
         }
       },
       "post": {
-        "description": "",
+        "description": "Create a new teacher",
         "parameters":[
           {
             "name": "student",
@@ -184,6 +184,12 @@
                     },
                     "is_tenured": {
                         "type": "boolean"
+                    },
+                    "courses": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
                     }
                 },
                 "required": ["first_name", "last_name", "email", "department", "hire_date", "is_tenured", "courses"]
@@ -202,7 +208,7 @@
     },
     "/teachers/{id}": {
       "get": {
-        "description": "",
+        "description": "Get a teacher by id",
         "parameters": [
           {
             "name": "id",
@@ -218,7 +224,7 @@
         }
       },
       "put": {
-        "description": "",
+        "description": "Update a teacher by id",
         "parameters": [
           {
             "name": "id",
@@ -250,6 +256,12 @@
                     },
                     "is_tenured": {
                         "type": "boolean"
+                    },
+                    "courses": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
                     }
                 },
                 "required": ["first_name", "last_name", "email", "department", "hire_date", "is_tenured", "courses"]
@@ -263,7 +275,7 @@
         }
       },
       "delete": {
-        "description": "",
+        "description": "Delete a teacher by id",
         "parameters": [
           {
             "name": "id",

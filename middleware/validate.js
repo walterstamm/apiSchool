@@ -5,9 +5,9 @@ const saveStudent = (req, res, next) => {
     first_name: 'required|string',
     last_name: 'required|string',
     email: 'required|email',
-    age: 'required|number',
+    age: 'required|integer',
     major: 'required|string',
-    enrollment_year: 'required|number',
+    enrollment_year: 'required|integer',
     is_active: 'required|boolean'
   };
   validator(req.body, validationRule, {}, (err, status) => {
@@ -33,6 +33,17 @@ const saveTeacher = (req, res, next) => {
     is_tenured: 'required|boolean',
     courses: 'required|array'
   };
+  validator(req.body, validationRule, {}, (err, status) => {
+    if (!status) {
+      res.status(412).send({
+        success: false,
+        message: 'Validation failed',
+        data: err
+      });
+    } else {
+      next();
+    }
+  });
 };
 
 
