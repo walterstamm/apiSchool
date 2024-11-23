@@ -1,12 +1,14 @@
 const validator = require('../helpers/validate');
 
-const saveContact = (req, res, next) => {
+const saveStudent = (req, res, next) => {
   const validationRule = {
-    firstName: 'required|string',
-    lastName: 'required|string',
+    first_name: 'required|string',
+    last_name: 'required|string',
     email: 'required|email',
-    favoriteColor: 'required|string',
-    birthday: 'string'
+    age: 'required|number',
+    major: 'required|string',
+    enrollment_year: 'required|number',
+    is_active: 'required|boolean'
   };
   validator(req.body, validationRule, {}, (err, status) => {
     if (!status) {
@@ -21,10 +23,23 @@ const saveContact = (req, res, next) => {
   });
 };
 
+const saveTeacher = (req, res, next) => {
+  const validationRule = {
+    first_name: 'required|string',
+    last_name: 'required|string',
+    email: 'required|email',
+    department: 'required|string',
+    hire_date: 'required|date',
+    is_tenured: 'required|boolean',
+    courses: 'required|array'
+  };
+};
+
 
 const  handleErrors = fn => (req, res, next) => Promise.resolve(fn(req, res, next)).catch(next)
 
 module.exports = {
-  saveContact,
+  saveStudent,
+  saveTeacher,
   handleErrors
 };

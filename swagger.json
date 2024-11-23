@@ -14,20 +14,54 @@
     "/students/": {
       "get": {
         "description": "",
-        "produces": [
-          "application/json"
-        ],
         "responses": {
-          "200": {
-            "description": "OK"
+          "default": {
+            "description": ""
           }
         }
       },
       "post": {
         "description": "",
+        "parameters":[
+          {
+            "name": "student",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "first_name": {
+                  "type": "string"
+                },
+                "last_name": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string"
+                },
+                "age": {
+                  "type": "number"
+                },
+                "major": {
+                  "type": "string"
+                },
+                "enrollment_year": {
+                  "type": "number"
+                },
+                "is_active": {
+                  "type": "boolean"
+                }
+              },
+              "required": ["first_name", "last_name", "email", "age", "major", "enrollment_year", "is_active"]
+            }
+          }
+        ],
         "responses": {
           "201": {
-            "description": "Created"
+            "description": "Student created"
+          },
+          "412": {
+            "description": "Precondition Failed"
           }
         }
       }
@@ -35,9 +69,6 @@
     "/students/{id}": {
       "get": {
         "description": "",
-        "produces": [
-          "application/json"
-        ],
         "parameters": [
           {
             "name": "id",
@@ -47,8 +78,8 @@
           }
         ],
         "responses": {
-          "200": {
-            "description": "OK"
+          "default": {
+            "description": ""
           }
         }
       },
@@ -60,11 +91,43 @@
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "student",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "first_name": {
+                  "type": "string"
+                },
+                "last_name": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string"
+                },
+                "age": {
+                  "type": "number"
+                },
+                "major": {
+                  "type": "string"
+                },
+                "enrollment_year": {
+                  "type": "number"
+                },
+                "is_active": {
+                  "type": "boolean"
+                }
+              },
+              "required": ["first_name", "last_name", "email", "age", "major", "enrollment_year", "is_active"]
+            }
           }
         ],
         "responses": {
-          "204": {
-            "description": "No Content"
+          "412": {
+            "description": "Precondition Failed"
           }
         }
       },
@@ -79,8 +142,8 @@
           }
         ],
         "responses": {
-          "200": {
-            "description": "OK"
+          "default": {
+            "description": ""
           }
         }
       }
@@ -88,20 +151,51 @@
     "/teachers/": {
       "get": {
         "description": "",
-        "produces": [
-          "application/json"
-        ],
         "responses": {
-          "200": {
-            "description": "OK"
+          "default": {
+            "description": ""
           }
         }
       },
       "post": {
         "description": "",
+        "parameters":[
+          {
+            "name": "student",
+            "in": "body",
+            "required": true,
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "first_name": {
+                        "type": "string"
+                    },
+                    "last_name": {
+                        "type": "string"
+                    },
+                    "email": {
+                        "type": "string"
+                    },
+                    "department": {
+                        "type": "string"
+                    },
+                    "hire_date": {
+                        "type": "date"
+                    },
+                    "is_tenured": {
+                        "type": "boolean"
+                    }
+                },
+                "required": ["first_name", "last_name", "email", "department", "hire_date", "is_tenured", "courses"]
+            }
+          }
+        ],
         "responses": {
           "201": {
-            "description": "Created"
+              "description": "Teacher created"
+          },
+          "412": {
+              "description": "Precondition Failed"
           }
         }
       }
@@ -109,9 +203,6 @@
     "/teachers/{id}": {
       "get": {
         "description": "",
-        "produces": [
-          "application/json"
-        ],
         "parameters": [
           {
             "name": "id",
@@ -121,8 +212,8 @@
           }
         ],
         "responses": {
-          "200": {
-            "description": "OK"
+          "default": {
+            "description": ""
           }
         }
       },
@@ -134,11 +225,40 @@
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "student",
+            "in": "body",
+            "required": true,
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "first_name": {
+                        "type": "string"
+                    },
+                    "last_name": {
+                        "type": "string"
+                    },
+                    "email": {
+                        "type": "string"
+                    },
+                    "department": {
+                        "type": "string"
+                    },
+                    "hire_date": {
+                        "type": "date"
+                    },
+                    "is_tenured": {
+                        "type": "boolean"
+                    }
+                },
+                "required": ["first_name", "last_name", "email", "department", "hire_date", "is_tenured", "courses"]
+            }
           }
         ],
         "responses": {
-          "204": {
-            "description": "No Content"
+          "default": {
+            "description": ""
           }
         }
       },
@@ -153,8 +273,8 @@
           }
         ],
         "responses": {
-          "200": {
-            "description": "OK"
+          "default": {
+            "description": ""
           }
         }
       }
